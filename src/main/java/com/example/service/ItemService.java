@@ -4,7 +4,7 @@ import com.example.entity.Item;
 
 import java.util.List;
 
-public interface LessonItemService {
+public interface ItemService {
 
     Item findOneFromLesson(Long lessonItemId, Long lessonId);
 
