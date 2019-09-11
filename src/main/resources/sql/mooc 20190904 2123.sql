@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS course (
   name varchar(50) NOT NULL,
   description varchar(255) DEFAULT NULL,
   language varchar(50) DEFAULT NULL,
-  diration_hours int(11) DEFAULT NULL,
+  duration_hours int(11) DEFAULT NULL,
   PRIMARY KEY (id)
 )
 CHARACTER SET utf8,
@@ -28,9 +28,9 @@ COLLATE utf8_general_ci;
 CREATE TABLE IF NOT EXISTS unit (
   id bigint(20) NOT NULL AUTO_INCREMENT,
   course_id bigint(20) NOT NULL,
-  name varbinary(50) NOT NULL,
+  name varchar(50) NOT NULL,
   description varchar(255) DEFAULT NULL,
-  diration_hours int(11) DEFAULT NULL,
+  duration_hours int(11) DEFAULT NULL,
   PRIMARY KEY (id)
 )
 CHARACTER SET utf8,
@@ -54,7 +54,7 @@ ALTER TABLE lesson
 ADD CONSTRAINT FK_lesson_unit FOREIGN KEY (unit_id)
 REFERENCES unit (id);
 
-CREATE TABLE IF NOT EXISTS lesson_item (
+CREATE TABLE IF NOT EXISTS item (
   id bigint(20) NOT NULL AUTO_INCREMENT,
   lesson_id bigint(20) NOT NULL,
   name varchar(50) NOT NULL,
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS lesson_item (
 CHARACTER SET utf8,
 COLLATE utf8_general_ci;
 
-ALTER TABLE lesson_item
+ALTER TABLE item
 ADD CONSTRAINT FK_item_lesson_id FOREIGN KEY (lesson_id)
 REFERENCES lesson (id);
 
@@ -79,21 +79,21 @@ CREATE TABLE IF NOT EXISTS user (
 CHARACTER SET utf8,
 COLLATE utf8_general_ci;
 
-CREATE TABLE IF NOT EXISTS user_lesson_item (
+CREATE TABLE IF NOT EXISTS user_item (
   user_id bigint(20) NOT NULL,
   lesson_item_id bigint(20) NOT NULL
 )
 CHARACTER SET utf8,
 COLLATE utf8_general_ci;
 
-ALTER TABLE user_lesson_item
-ADD UNIQUE INDEX user_lesson_unique (lesson_item_id, user_id);
+ALTER TABLE user_item
+ADD UNIQUE INDEX user_item_unique (item_id, user_id);
 
-ALTER TABLE user_lesson_item
-ADD CONSTRAINT FK_lesson_item_id FOREIGN KEY (lesson_item_id)
+ALTER TABLE user_item
+ADD CONSTRAINT FK_item_id FOREIGN KEY (item_id)
 REFERENCES lesson (id);
 
-ALTER TABLE user_lesson_item
+ALTER TABLE user_item
 ADD CONSTRAINT FK_user_id FOREIGN KEY (user_id)
 REFERENCES user (id);
 
