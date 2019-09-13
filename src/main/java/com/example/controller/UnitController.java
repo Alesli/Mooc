@@ -18,38 +18,30 @@ public class UnitController {
 
     //    http://localhost:8080/api/unit/findOneFromCourse/{courseId}/{courseId}
     @GetMapping("/findById/{courseId}/{courseId}")
-    public ResponseEntity<Unit> findOneFromCourse(@PathVariable("courseId") Long unitId,
+    public Unit findOneFromCourse(@PathVariable("courseId") Long unitId,
                                                   @PathVariable("courseId") Long courseId) {
-        Unit result = unitService.findOneFromCourse(unitId, courseId);
-        return result == null ?
-                new ResponseEntity<>(HttpStatus.NO_CONTENT) :
-                new ResponseEntity<>(result, HttpStatus.OK);
+
+        return unitService.findOneFromCourse(unitId, courseId);
     }
 
     //    http://localhost:8080/api/unit/findAll/{courseId}
     @GetMapping("/findAll/{courseId}")
-    public ResponseEntity<List<Unit>> findAllFromCourse(@PathVariable("courseId") Long courseId) {
-        List<Unit> result = unitService.findAllFromCourse(courseId);
-        return result == null ?
-                new ResponseEntity<>(HttpStatus.NO_CONTENT) :
-                new ResponseEntity<>(result, HttpStatus.OK);
+    public List<Unit> findAllFromCourse(@PathVariable("courseId") Long courseId) {
+
+        return unitService.findAllFromCourse(courseId);
     }
 
     //    http://localhost:8080/api/unit/update/{courseId}
     @PutMapping("/update/{courseId}")
-    public ResponseEntity<Unit> updateUnit(@PathVariable("courseId") Long courseId,
+    public Unit updateUnit(@PathVariable("courseId") Long courseId,
                                            @RequestBody Unit unit) {
-        Unit result = unitService.update(courseId, unit);
-        return result == null ?
-                new ResponseEntity<>(HttpStatus.NO_CONTENT) :
-                new ResponseEntity<>(result, HttpStatus.OK);
+        return unitService.update(courseId, unit);
     }
 
-    //    http://localhost:8080/api/unit/remove/{courseId}/{courseId}
+    //    http://localhost:8080/api/unit/remove/{unitId}
     @GetMapping("/remove/{courseId}/{courseId}")
-    public ResponseEntity removeUnit(@PathVariable("courseId") Long unitId,
-                                     @PathVariable("courseId") Long courseId) {
-        unitService.delete(unitId, courseId);
-        return new ResponseEntity<>(HttpStatus.OK);
+    public Boolean removeUnit(@PathVariable("courseId") Long unitId) {
+
+        return unitService.delete(unitId);
     }
 }

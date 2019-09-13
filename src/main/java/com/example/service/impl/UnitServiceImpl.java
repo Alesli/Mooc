@@ -31,7 +31,7 @@ public class UnitServiceImpl implements UnitService {
     }
 
     @Override
-    public boolean delete(Long unitId, Long courseId) {
+    public boolean delete(Long unitId) {
         return false;
     }
 }

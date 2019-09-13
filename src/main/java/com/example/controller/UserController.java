@@ -21,29 +21,21 @@ public class UserController {
 
     //    http://localhost:8080/api/user/findById/{userId}
     @GetMapping("/findById/{userId}")
-    public ResponseEntity<User> findOneBookById(@PathVariable("userId") Long userId) {
-        User result = userService.findOneById(userId);
-        return result == null ?
-                new ResponseEntity<>(HttpStatus.NO_CONTENT) :
-                new ResponseEntity<>(result, HttpStatus.OK);
+    public User findOneBookById(@PathVariable() Long userId) {
+        return userService.findOneById(userId);
     }
 
     //    http://localhost:8080/api/user/findByLogin/{userLogin}
     @GetMapping("/findById/{userLogin}")
-    public ResponseEntity<User> findOneBookBy(@PathVariable("userLogin") String userLogin) {
-        User result = userService.findOneByLogin(userLogin);
-        return result == null ?
-                new ResponseEntity<>(HttpStatus.NO_CONTENT) :
-                new ResponseEntity<>(result, HttpStatus.OK);
+    public User findOneBookBy(@PathVariable("userLogin") String userLogin) {
+        return userService.findOneByLogin(userLogin);
     }
 
     //    http://localhost:8080/api/user/findAll
     @GetMapping("/findAll")
-    public ResponseEntity<List<User>> findAll() {
-        List<User> result = userService.findAll();
-        return result == null ?
-                new ResponseEntity<>(HttpStatus.NO_CONTENT) :
-                new ResponseEntity<>(result, HttpStatus.OK);
+    public List<User> findAll() {
+
+        return userService.findAll();
     }
 
     //    http://localhost:8080/api/user/register
