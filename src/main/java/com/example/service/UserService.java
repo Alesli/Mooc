@@ -1,5 +1,6 @@
 package com.example.service;
 
+import com.example.dto.UserDto;
 import com.example.entity.User;
 
 import java.util.List;
@@ -8,7 +9,9 @@ public interface UserService {
 
     User findOneById(Long id);
 
-    User findOneByLogin(String login);
+    String findLogin(String password,String login);
+
+    User findUserByLogin(String login);
 
     List<User> findAll();
 

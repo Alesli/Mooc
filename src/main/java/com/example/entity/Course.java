@@ -35,6 +35,8 @@ public class Course implements Serializable {
     @Column(name = "duration_hours")
     private Integer durationHours;
 
+    private boolean statusActive;
+
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Unit> units;

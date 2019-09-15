@@ -1,5 +1,6 @@
 package com.example.service.impl;
 
+import com.example.dto.UserDto;
 import com.example.entity.User;
 import com.example.service.UserService;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findOneByLogin(String login) {
+    public String findLogin(String password, String login) {
+        return null;
+    }
+
+    @Override
+    public User findUserByLogin(String login) {
         return null;
     }
 
