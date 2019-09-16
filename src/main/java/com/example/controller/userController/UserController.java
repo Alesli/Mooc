@@ -1,19 +1,17 @@
 package com.example.controller.userController;
 
-import com.example.Convertor.CourseConverter;
-import com.example.Convertor.LessonConverter;
-import com.example.Convertor.UnitConverter;
+import com.example.convertor.CourseConverter;
+import com.example.convertor.LessonConverter;
+import com.example.convertor.UnitConverter;
 import com.example.dto.CourseDto;
 import com.example.dto.CourseWithUnitsDto;
 import com.example.dto.UnitDto;
-import com.example.dto.UnitWithLessonsDto;
 import com.example.entity.Course;
 import com.example.entity.Lesson;
 import com.example.entity.Unit;
 import com.example.service.CourseService;
 import com.example.service.LessonService;
 import com.example.service.UnitService;
-import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

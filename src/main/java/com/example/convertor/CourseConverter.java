@@ -1,4 +1,4 @@
-package com.example.Convertor;
+package com.example.convertor;
 
 import com.example.dto.CourseDto;
 import com.example.dto.CourseWithUnitsDto;

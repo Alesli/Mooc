@@ -1,6 +1,6 @@
 package com.example.controller.management;
 
-import com.example.Convertor.ItemConverter;
+import com.example.convertor.ItemConverter;
 import com.example.dto.ItemDto;
 import com.example.entity.Item;
 import com.example.service.ItemService;

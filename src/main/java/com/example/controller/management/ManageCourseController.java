@@ -1,6 +1,6 @@
 package com.example.controller.management;
 
-import com.example.Convertor.CourseConverter;
+import com.example.convertor.CourseConverter;
 import com.example.dto.CourseDto;
 import com.example.entity.Course;
 import com.example.service.CourseService;
