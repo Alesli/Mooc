@@ -54,6 +54,16 @@ public class UserController {
         return courseDto;
     }
 
+    //     http://localhost:8080/api/user/courses/{unitId}
+    @GetMapping("/courses/{userId}")
+    public List<CourseDto> findCourseFromUser(@PathVariable() Long userId) {
+
+        List<Course> courseList = courseService.findAllFromUserId(userId);
+        return courseList.stream()
+                .map(courseConverter::getCourseDto)
+                .collect(Collectors.toList());
+    }
+
     //     http://localhost:8080/api/user/unit/{unitId}
     @GetMapping("/unit/{unitId}")
     public UnitDto findOneUnit(@PathVariable() Long unitId) {

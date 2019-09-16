@@ -1,8 +1,9 @@
 package com.example.service.impl;
 
-import com.example.dto.UserDto;
 import com.example.entity.User;
+import com.example.repository.UserRepository;
 import com.example.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -12,9 +13,12 @@ import java.util.List;
 @Transactional
 public class UserServiceImpl implements UserService {
 
+    @Autowired
+    private UserRepository userRepository;
+
     @Override
     public User findOneById(Long id) {
-        return null;
+        return userRepository.getOne(id);
     }
 
     @Override
@@ -29,12 +33,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findAll() {
-        return null;
+        return userRepository.findAll();
     }
 
     @Override
     public User save(User user) {
-        return null;
+        return userRepository.save(user);
     }
 
     @Override
@@ -43,7 +47,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean delete(Long id) {
-        return false;
+    public void delete(Long userId) {
+        userRepository.deleteById(userId);
     }
 }

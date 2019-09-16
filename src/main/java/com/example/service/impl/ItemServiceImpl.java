@@ -1,7 +1,9 @@
 package com.example.service.impl;
 
 import com.example.entity.Item;
+import com.example.repository.ItemRepository;
 import com.example.service.ItemService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -10,9 +12,13 @@ import java.util.List;
 @Service
 @Transactional
 public class ItemServiceImpl implements ItemService {
+
+    @Autowired
+    private ItemRepository itemRepository;
+
     @Override
     public Item findOne(Long itemId) {
-        return null;
+        return itemRepository.getOne(itemId);
     }
 
     @Override
@@ -22,7 +28,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public Item save(Item item) {
-        return null;
+        return itemRepository.save(item);
     }
 
     @Override
@@ -31,7 +37,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public boolean delete(Long id) {
-        return false;
+    public void delete(Long itemId) {
+        itemRepository.deleteById(itemId);
     }
 }

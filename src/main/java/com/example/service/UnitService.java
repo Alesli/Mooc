@@ -14,5 +14,5 @@ public interface UnitService {
 
     Unit update(Unit unit);
 
-    boolean delete(Long unitId);
+    void delete(Long unitId);
 }
