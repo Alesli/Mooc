@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface UnitService {
 
-    Unit findOneFromCourse(Long unitId, Long courseId);
+    Unit findOne(Long unitId);
 
     List<Unit> findAllFromCourse(Long courseId);
 
     Unit save(Unit unit);
 
-    Unit update(Long courseId, Unit unit);
+    Unit update(Unit unit);
 
     boolean delete(Long unitId);
 }

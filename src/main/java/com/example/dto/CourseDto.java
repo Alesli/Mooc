@@ -1,6 +1,5 @@
 package com.example.dto;
 
-import com.example.entity.Unit;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,5 +18,5 @@ public class CourseDto {
     private String description;
     private String language;
     private Integer durationHours;
-    private List<Unit> unitList;
+    private List<UnitDto> unitList;
 }

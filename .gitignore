@@ -1,8 +1,8 @@
 # idea folder
-.idea/
+.idea
 
 # targed folder
-target/
+target
 
 # Compiled class file
 *.class

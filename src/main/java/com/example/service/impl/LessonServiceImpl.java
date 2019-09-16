@@ -11,7 +11,7 @@ import java.util.List;
 @Transactional
 public class LessonServiceImpl implements LessonService {
     @Override
-    public Lesson findOneFromUnit(Long lessonId, Long unitId) {
+    public Lesson findOne(Long unitId) {
         return null;
     }
 
@@ -26,7 +26,7 @@ public class LessonServiceImpl implements LessonService {
     }
 
     @Override
-    public Lesson update(Long unitId, Lesson lesson) {
+    public Lesson update(Lesson lesson) {
         return null;
     }
 

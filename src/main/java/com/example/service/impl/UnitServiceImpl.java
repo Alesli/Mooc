@@ -11,7 +11,7 @@ import java.util.List;
 @Transactional
 public class UnitServiceImpl implements UnitService {
     @Override
-    public Unit findOneFromCourse(Long unitId, Long courseId) {
+    public Unit findOne(Long unitId) {
         return null;
     }
 
@@ -26,7 +26,7 @@ public class UnitServiceImpl implements UnitService {
     }
 
     @Override
-    public Unit update(Long courseId, Unit unit) {
+    public Unit update(Unit unit) {
         return null;
     }
 

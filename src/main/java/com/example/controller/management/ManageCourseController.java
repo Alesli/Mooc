@@ -16,17 +16,17 @@ public class ManageCourseController {
     @Autowired
     private CourseConverter courseConverter;
 
-    //    http://localhost:8080/api/management/course/{courseId}
-    @PutMapping("/course/{courseId}")
-    public CourseDto updateCourse(@PathVariable() Long courseId) {
-        Course course = courseService.findOneById(courseId);
-        Course result = courseService.update(course);
+    //    http://localhost:8080/api/management/course
+    @PutMapping("/course")
+    public CourseDto updateCourse(@RequestBody CourseDto courseDto) {
+        Course result = courseService.update(
+                courseConverter.getCourse(courseDto));
         return courseConverter.getCourseDto(result);
     }
 
     //    http://localhost:8080/api/management/course
     @PostMapping("/course")
-    public CourseDto register(@RequestBody CourseDto courseDto) {
+    public CourseDto createCourse(@RequestBody CourseDto courseDto) {
         Course course = courseConverter.getCourse(courseDto);
         Course result = courseService.save(course);
         return courseConverter.getCourseDto(result);
@@ -34,7 +34,7 @@ public class ManageCourseController {
 
     //    http://localhost:8080/api/management/course/{courseId}
     @DeleteMapping("/course/{courseId}")
-    public void removeCourse(@PathVariable() Long courseId) {
+    public void deleteCourse(@PathVariable() Long courseId) {
         courseService.delete(courseId);
     }
 }

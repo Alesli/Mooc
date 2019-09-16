@@ -11,7 +11,7 @@ import java.util.List;
 @Transactional
 public class ItemServiceImpl implements ItemService {
     @Override
-    public Item findOneFromLesson(Long lessonItemId, Long lessonId) {
+    public Item findOne(Long itemId) {
         return null;
     }
 
@@ -26,7 +26,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Item update(Long lessonId, Item item) {
+    public Item update(Item item) {
         return null;
     }
 

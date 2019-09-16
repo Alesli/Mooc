@@ -16,7 +16,6 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
-
     //    http://localhost:8080/api/user/login/{userLogin}
     @GetMapping("/login/{userLogin}")
     public UserDto findUserByLogin(@PathVariable() String userLogin) {

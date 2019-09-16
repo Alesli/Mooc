@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface LessonService {
 
-    Lesson findOneFromUnit(Long lessonId, Long unitId);
+    Lesson findOne(Long lessonId);
 
     List<Lesson> findAllFromUnit(Long unitId);
 
     Lesson save(Lesson lesson);
 
-    Lesson update(Long unitId, Lesson lesson);
+    Lesson update(Lesson lesson);
 
     boolean delete(Long id);
 }
