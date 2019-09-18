@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
+
 @RestController
 @RequestMapping("/api/management")
 public class ManageUserController {
@@ -23,8 +25,8 @@ public class ManageUserController {
     //    http://localhost:8080/api/management/user/{userId}
     @GetMapping("/{userId}")
     public UserDto findOneUserById(@PathVariable() Long userId) {
-        User result = userService.findOneById(userId);
-        return userConverter.getUserDto(result);
+        return userConverter.getUserDto(
+                userService.findOneById(userId));
     }
 
     //    http://localhost:8080/api/management/users

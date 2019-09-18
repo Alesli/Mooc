@@ -10,7 +10,7 @@ public interface UserService {
 
     String findLogin(String password, String login);
 
-    User findUserByLogin(String login);
+    User findOneByLogin(String login);
 
     List<User> findAll();
 

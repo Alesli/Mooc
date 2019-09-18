@@ -19,7 +19,7 @@ public class LoginController {
     //    http://localhost:8080/api/user/login/{userLogin}
     @GetMapping("/login/{userLogin}")
     public UserDto findUserByLogin(@PathVariable() String userLogin) {
-        User user = userService.findUserByLogin(userLogin);
+        User user = userService.findOneByLogin(userLogin);
         return null;
     }
 }
