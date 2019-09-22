@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-
 @RestController
 @RequestMapping("/api/management")
 public class ManageUserController {
@@ -41,16 +40,14 @@ public class ManageUserController {
     //    http://localhost:8080/api/management/register
     @PostMapping("/register")
     public UserDto register(@RequestBody UserDto userDto) {
-        User user = userConverter.getUser(userDto);
-        User result = userService.save(user);
+        User result = userService.save(userConverter.getUser(userDto));
         return userConverter.getUserDto(result);
     }
 
-    //    http://localhost:8080/api/management/user/{userId}
-    @PutMapping("/user/{userId}")
-    public UserDto updateUser(@PathVariable() Long userId) {
-        User user = userService.findOneById(userId);
-        User result = userService.update(user);
+    //    http://localhost:8080/api/management/user
+    @PutMapping("/user")
+    public UserDto updateUser(@RequestBody UserDto userDto) {
+        User result = userService.update(userConverter.getUser(userDto));
         return userConverter.getUserDto(result);
     }
 

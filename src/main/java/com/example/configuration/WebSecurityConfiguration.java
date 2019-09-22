@@ -15,7 +15,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfiguration  extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -26,16 +25,16 @@ public class WebSecurityConfiguration  extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    @Autowired
-    public WebSecurityConfiguration(UserDetailsServiceImpl userDetailsServiceImpl) {
-        this.userDetailsServiceImpl = userDetailsServiceImpl;
-    }
+//    @Autowired
+//    public WebSecurityConfiguration(UserDetailsServiceImpl userDetailsServiceImpl) {
+//        this.userDetailsServiceImpl = userDetailsServiceImpl;
+//    }
 
-    @Bean
-    @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
-    }
+//    @Bean
+//    @Override
+//    public AuthenticationManager authenticationManagerBean() throws Exception {
+//        return super.authenticationManagerBean();
+//    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder authentication) throws Exception {
