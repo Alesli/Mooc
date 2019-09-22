@@ -36,8 +36,6 @@ public class Unit implements Serializable {
     @Column(name = "duration_hours")
     private Integer durationHours;
 
-    private Integer ordinal;
-
     @OneToMany(mappedBy = "unit", cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Lesson> lessons;

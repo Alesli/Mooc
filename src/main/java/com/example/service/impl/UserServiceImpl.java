@@ -39,12 +39,22 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(User user) {
-        return userRepository.save(user);
+        if (user.getId() == null){
+            return userRepository.save(user);
+        } else return update(user);
     }
 
     @Override
     public User update(User user) {
-        return null;
+        if (user.getId()!= null){
+          User result = User.builder()
+                  .fullName(user.getFullName())
+                  .password(user.getPassword())
+                  .login(user.getLogin())
+                  .role(user.getRole())
+                  .build();
+            return userRepository.save(result);
+        } else return save(user);
     }
 
     @Override

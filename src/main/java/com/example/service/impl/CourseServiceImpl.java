@@ -28,7 +28,8 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public List<Course> findAllFromUserId(Long userId) {
-        return courseRepository.findAllByUserId(userId);
+//        return courseRepository.findAllByUserId(userId);
+        return null;
     }
 
     @Override
