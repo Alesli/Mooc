@@ -1,7 +1,7 @@
 package com.example.convertor;
 
 import com.example.dto.UnitDto;
-import com.example.dto.UnitWithLessonsDto;
+import com.example.dto.UnitTreeDto;
 import com.example.entity.Unit;
 import org.springframework.stereotype.Component;
 
@@ -19,13 +19,13 @@ public class UnitConverter {
         return unitDto;
     }
 
-    public UnitWithLessonsDto getUnitLessonsDto(Unit unit) {
+    public UnitTreeDto getUnitLessonsDto(Unit unit) {
 
-        UnitWithLessonsDto unitWithLessonsDto = new UnitWithLessonsDto();
-        unitWithLessonsDto.setId(unit.getId());
-        unitWithLessonsDto.setName(unit.getName());
+        UnitTreeDto unitTreeDto = new UnitTreeDto();
+        unitTreeDto.setId(unit.getId());
+        unitTreeDto.setName(unit.getName());
 
-        return unitWithLessonsDto;
+        return unitTreeDto;
     }
 
     public Unit getUnit(UnitDto unitDto) {

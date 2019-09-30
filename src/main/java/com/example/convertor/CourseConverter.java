@@ -1,7 +1,7 @@
 package com.example.convertor;
 
 import com.example.dto.CourseDto;
-import com.example.dto.CourseWithUnitsDto;
+import com.example.dto.CourseTreeDto;
 import com.example.entity.Course;
 import org.springframework.stereotype.Component;
 
@@ -20,13 +20,13 @@ public class CourseConverter {
         return courseDto;
     }
 
-    public CourseWithUnitsDto getCourseUnitsDto(Course course) {
+    public CourseTreeDto getCourseUnitsDto(Course course) {
 
-        CourseWithUnitsDto courseWithUnitsDto = new CourseWithUnitsDto();
-        courseWithUnitsDto.setId(course.getId());
-        courseWithUnitsDto.setName(course.getName());
+        CourseTreeDto courseTreeDto = new CourseTreeDto();
+        courseTreeDto.setId(course.getId());
+        courseTreeDto.setName(course.getName());
 
-        return courseWithUnitsDto;
+        return courseTreeDto;
     }
 
     public Course getCourse(CourseDto courseDto) {

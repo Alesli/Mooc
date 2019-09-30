@@ -4,7 +4,7 @@ import com.example.convertor.CourseConverter;
 import com.example.convertor.LessonConverter;
 import com.example.convertor.UnitConverter;
 import com.example.dto.CourseDto;
-import com.example.dto.CourseWithUnitsDto;
+import com.example.dto.CourseTreeDto;
 import com.example.dto.UnitDto;
 import com.example.entity.Course;
 import com.example.entity.Lesson;
@@ -41,12 +41,12 @@ public class UserController {
 
     //    http://localhost:8080/api/user/{courseId}/tree
     @GetMapping("/course/{courseId}")
-    public CourseWithUnitsDto findOneCourseById(@PathVariable("courseId") Long courseId) {
+    public CourseTreeDto findOneCourseById(@PathVariable("courseId") Long courseId) {
         Course course = courseService.findOneById(courseId);
-        CourseWithUnitsDto courseDto = courseConverter.getCourseUnitsDto(course);
+        CourseTreeDto courseDto = courseConverter.getCourseUnitsDto(course);
         List<Unit> units = unitService.findAllFromCourse(courseId);
 
-        courseDto.setUnitWithLessonsDtoList(units.stream()
+        courseDto.setUnitTreeDtoList(units.stream()
                 .map(unitConverter::getUnitLessonsDto)
                 .collect(Collectors.toList()));
         return courseDto;

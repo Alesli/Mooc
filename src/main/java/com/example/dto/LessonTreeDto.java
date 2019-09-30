@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-public class LessonWithItemsDto {
+public class LessonTreeDto {
 
     private Long id;
     private String name;

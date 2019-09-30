@@ -1,7 +1,7 @@
 package com.example.convertor;
 
 import com.example.dto.LessonDto;
-import com.example.dto.LessonWithItemsDto;
+import com.example.dto.LessonTreeDto;
 import com.example.entity.Lesson;
 import org.springframework.stereotype.Component;
 
@@ -18,13 +18,13 @@ public class LessonConverter {
         return lessonDto;
     }
 
-    public LessonWithItemsDto getLessonItemsDto(Lesson lesson) {
+    public LessonTreeDto getLessonItemsDto(Lesson lesson) {
 
-        LessonWithItemsDto lessonWithItemsDto = new LessonWithItemsDto();
-        lessonWithItemsDto.setId(lesson.getId());
-        lessonWithItemsDto.setName(lesson.getName());
+        LessonTreeDto lessonTreeDto = new LessonTreeDto();
+        lessonTreeDto.setId(lesson.getId());
+        lessonTreeDto.setName(lesson.getName());
 
-        return lessonWithItemsDto;
+        return lessonTreeDto;
     }
 
     public Lesson getLesson(LessonDto lessonDto) {

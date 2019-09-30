@@ -11,9 +11,9 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-public class UnitWithLessonsDto {
+public class UnitTreeDto {
 
     private Long id;
     private String name;
-    private List<LessonWithItemsDto> lessonWithItemsDtoList;
+    private List<LessonTreeDto> lessonTreeDtoList;
 }
